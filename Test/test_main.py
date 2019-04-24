@@ -5,11 +5,11 @@ import time
 class Test_Main:
 
     @pytest.fixture(autouse=True)
-    def initialSetup(self,invoke_browser):
+    def initialSetup(self, invoke_browser):
         pass
 
     @pytest.mark.run(order=1)
-    def test_open_url(self):
+    def test_initialize(self):
         driver = self.driver
         print(driver.title)
 
