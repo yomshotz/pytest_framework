@@ -13,8 +13,6 @@ def invoke_browser(request, browser):
 
     # Set class attribute and assign the variable
     if request.cls is not None:
-        driver.get("https://chain.unionbankph.com/i2i/home")
-        driver.maximize_window()
         request.cls.driver = driver
     yield driver
     driver.quit()

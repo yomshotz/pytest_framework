@@ -4,7 +4,7 @@ from Driver.selenium_driver import SeleniumDriver
 class Driver_Mapping(SeleniumDriver):
 
     def __init__(self, driver):
-        super(driver_mapping, self).__init__(driver)
+        super(Driver_Mapping, self).__init__(driver)
         self.driver = driver
 
     # Execute the keyword functions and return the status
@@ -13,7 +13,6 @@ class Driver_Mapping(SeleniumDriver):
         self.keyword = keyword.lower
 
         if self.keyword == "navigate":
-            result = None
             result = self.navigate(value)
             return result
         elif self.keyword == "input":

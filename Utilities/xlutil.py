@@ -7,35 +7,31 @@ class ExcelUtil:
 
     def setExcelFile(self, path):
         try:
-            self.workbook = openpyxl.load_workbook(file)
+            self.workbook = openpyxl.load_workbook(path)
         except:
             print('Failed to open the file')
 
     def getRowCount(self, sheetName):
         try:
-            self.sheet = ""
-            
-            self.sheet = self.workbook.get_sheet_by_name(sheetName)
+            sheet = self.workbook[sheetName]
             return sheet.max_row
         except:
             print('Failed to get total row count')
 
     def getColCount(self, sheetName):
         try:
-            self.sheet = ""
-
-            self.sheet = self.workbook.get_sheet_by_name(sheetName) 
+            
+            sheet = self.workbook[sheetName]
             return sheet.max_column
         except:
             print('Failed to get total column count')
 
     def getCellData(self, sheetName, row_count, col_count):
         try:
-            self.sheet = ""                
-
-            self.sheet = self.workbook.get_sheet_by_name(sheetName)
-
-        return sheet.cell(row=row_count, column=col_count).value
+            sheet = self.workbook[sheetName]
+            return sheet.cell(row_count, col_count).value
+        except:
+            print("Failed to get the cell data")
 
     def getRowContains(self, testname, colNum, sheetname):
         rowNum = 0
@@ -115,6 +111,26 @@ class ExcelUtil:
                 return 2
         except Exception as e:
             return 2
+
+    def getTestdatavalue(self, testname, data, rownum):
+        try:
+            self.test_work_sheet = self.workbook.sheet_by_name(testname)
+            test_rows = self.test_work_sheet.nrows
+            test_cols = self.test_work_sheet.ncols
+            for irows in range(0, 1):
+                for icols in range(0, test_cols):
+                    test_data_header = self.getCellData(irows, icols, testname)
+                    if test_data_header == data:
+                        testdata_value = self.getCellData(
+                            rownum, 
+                            icols, 
+                            testname
+                        )
+                        return testdata_value
+                    else:
+                        pass
+        except:
+            pass
 
     def writeData(sheetName, row_count, col_count, data):
         sheet = self.workbook.get_sheet_by_name(sheetName)

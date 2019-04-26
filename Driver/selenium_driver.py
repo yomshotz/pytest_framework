@@ -7,6 +7,7 @@ from selenium.webdriver import ActionChains
 from Utilities.constant import Constants
 import time
 
+
 class SeleniumDriver():
 
     def __init__(self, driver):
@@ -39,6 +40,8 @@ class SeleniumDriver():
                 return True
             else:
                 return False
+        except:
+            print("Unable to find the element")
 
     def waitforelement(self, locator):
         try:
@@ -57,8 +60,10 @@ class SeleniumDriver():
             )
 
             element_to_wait = nwait.until(EC.presence_of_all_elements_located(
-                (By.XPATH, locator)
-            ))
+                (By.XPATH, locator))
+            )
+        except:
+            print("Unable to wait for the elements")
 
     def elementClick(self, locator):
         try:

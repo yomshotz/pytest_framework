@@ -9,8 +9,8 @@ class Constants():
 
 
     # Excel columns
-    Col_TestCaseID = 0
-    Col_TestCaseDescription = 1
+    Col_TestCaseID = 1
+    Col_TestCaseDescription = 2
     Col_TestScenarioID = 1
     Col_PageObject = 3
     Col_Object_Value = 1
