@@ -1,7 +1,7 @@
 from Driver.selenium_driver import SeleniumDriver
 
 
-class driver_mapping(SeleniumDriver):
+class Driver_Mapping(SeleniumDriver):
 
     def __init__(self, driver):
         super(driver_mapping, self).__init__(driver)

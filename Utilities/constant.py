@@ -1,7 +1,7 @@
 class Constants():
 
     # Folder locations
-    path_TestData = "#"
+    path_TestData = "D:\\i2i Project\\test_data.xlsx"
     path_Snapshot = "D:\\i2i Project\\Screenshots"
     path_IE_driver = "#"
     path_chrome_driver = "D:\\chromedriver.exe"
