@@ -10,7 +10,6 @@ class GetWebdriverInstance():
 
     def getbrowserInstance(self):
         if self.browser == 'IE':
-
             driver_location = self.constants.path_IE_driver
             os.environ["webdriver.IE.driver"] = driver_location
             driver = webdriver.Ie(driver_location)
